@@ -6,7 +6,7 @@ node('master') {
   stage 'Checkout'
 
   // Get some code from a GitHub repository
-  git url: 'https://github.com/rainavishal1/jenkins.git'
+  git url: 'https://github.com/rduraisamy/jenkins.git'
 
   // Get the maven tool.
   // ** NOTE: This 'M3' maven tool must be configured
@@ -25,13 +25,19 @@ node('master') {
   archive 'rdur/deploy.sh'
 }
 
+
 node ('ubuntu-server') {
+    
    stage 'Deploy'
-   unarchive mapping: ['war/target/jenkins.war' : '.']
+   //checking if there is already Jenkins instance running 
+   unarchive mapping: ['war/target/jenkins.war' : '/home/demo/jenkins.war']
+  sh "rm -f mypid"
+  sh "ps -efwww  |grep -v grep|grep  \"/home/demo/jenkins.war\"|awk {'print \$2'}>mypid"
+ 
+  sh "if [ -s mypid ]; then kill -9  `cat mypid`; fi"
+  sh "sleep 10"
+   
+   sh "nohup java -jar /home/demo/jenkins.war &"
    sh "ls"
 
 }
-
-
-
-
