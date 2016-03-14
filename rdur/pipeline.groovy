@@ -32,7 +32,7 @@ node ('ubuntu-server') {
 
 //   sh "if [ -s ./mypid.txt ]; then kill -9 `cat ./mypid.txt`; fi; rm -f ./mypid.txt"
    unarchive mapping: ['war/target/jenkins.war' : '.']
-   unarchive mapping: ['rdur/deploy.sh' : '.']
+  // unarchive mapping: ['rdur/deploy.sh' : '.']
    sh "pwd"
   // sh "bash deploy.sh"
 //   sh "nohup java -jar jenkins.war &"
