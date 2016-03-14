@@ -6,7 +6,7 @@ node('master') {
   stage 'Checkout'
 
   // Get some code from a GitHub repository
-  git url: 'https://github.com/rduraisamy/jenkins.git'
+  git url: 'https://github.com/rainavishal1/jenkins.git'
 
   // Get the maven tool.
   // ** NOTE: This 'M3' maven tool must be configured
