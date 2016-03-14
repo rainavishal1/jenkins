@@ -28,7 +28,6 @@ node('master') {
 node ('ubuntu-server') {
    stage 'Deploy'
    unarchive mapping: ['war/target/jenkins.war' : '.']
-   sh "pwd"
 
 }
 
