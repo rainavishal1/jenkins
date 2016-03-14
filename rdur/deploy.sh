@@ -8,8 +8,5 @@ if [ -s ./mypid.txt ]; then
 fi; 
 
 rm -f ./mypid.txt
+java -jar jenkins.war &
 
-export JENKINS_HOME=/home/rdur/.jenkins
-nohup java -jar jenkins.war &
-
-exit 0
